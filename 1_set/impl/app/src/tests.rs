@@ -4,10 +4,10 @@ use super::*;
 fn test_insert_and_search() {
     let mut set = ListSet::new();
     assert!(!set.search(&10));
-    
+
     set.insert(10);
     assert!(set.search(&10));
-    
+
     set.insert(10);
     assert_eq!(set.elements.len(), 1);
 }
@@ -17,9 +17,9 @@ fn test_delete() {
     let mut set = ListSet::new();
     set.insert(1);
     set.insert(2);
-    
+
     set.delete(&1);
-    
+
     assert!(!set.search(&1));
     assert!(set.search(&2));
     assert_eq!(set.elements.len(), 1);
@@ -30,9 +30,9 @@ fn test_clear() {
     let mut set = ListSet::new();
     set.insert(1);
     set.insert(2);
-    
+
     set.clear();
-    
+
     assert_eq!(set.elements.len(), 0);
     assert!(!set.search(&1));
 }
@@ -63,7 +63,7 @@ fn test_union() {
     set_b.insert(3);
 
     let union_set = set_a.union(&set_b);
-    
+
     assert!(union_set.search(&1));
     assert!(union_set.search(&2));
     assert!(union_set.search(&3));
@@ -83,7 +83,7 @@ fn test_intersection() {
     set_b.insert(4);
 
     let intersection_set = set_a.intersection(&set_b);
-    
+
     assert!(intersection_set.search(&2));
     assert!(intersection_set.search(&3));
     assert!(!intersection_set.search(&1));
@@ -103,7 +103,7 @@ fn test_set_difference() {
     set_b.insert(4);
 
     let diff_set = set_a.set_difference(&set_b);
-    
+
     assert!(diff_set.search(&1));
     assert!(diff_set.search(&3));
     assert!(!diff_set.search(&2));
@@ -121,7 +121,7 @@ fn test_sym_difference() {
     set_b.insert(3);
 
     let sym_diff_set = set_a.sym_difference(&set_b);
-    
+
     assert!(sym_diff_set.search(&1));
     assert!(sym_diff_set.search(&3));
     assert!(!sym_diff_set.search(&2));
