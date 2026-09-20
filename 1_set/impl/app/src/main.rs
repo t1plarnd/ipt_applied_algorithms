@@ -1,8 +1,9 @@
+#[derive(Debug, Clone)]
 pub struct ListSet<T> {
     elements: Vec<T>,
 }
 
-impl<T> ListSet<T> {
+impl<T: PartialEq + Clone> ListSet<T> {
     pub fn new() -> Self {
         ListSet {
             elements: Vec::new(),
