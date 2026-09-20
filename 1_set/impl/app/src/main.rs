@@ -1,3 +1,6 @@
+#[cfg(test)]
+mod tests;
+
 #[derive(Debug, Clone)]
 pub struct ListSet<T> {
     elements: Vec<T>,
